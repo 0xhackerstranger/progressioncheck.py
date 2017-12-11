@@ -20,13 +20,13 @@ except BaseException:
 
 # ------------------------------------------
 # Input/Output
-def input(filename):
+def fileinput(filename):
     with open(filename, 'r') as f:
         data = f.readlines()
         return data
 
 
-def output(filename, content):
+def fileoutput(filename, content):
     with open(filename, 'a') as f:
         f.write(content)
 
@@ -85,10 +85,10 @@ def main():
     tname = raw_input('Please enter your name: ')
     # tname = 'test'
     # textgri23 dname = 'test.TextGrid' #For debugging
-    content = input(textgridname)
+    content = fileinput(textgridname)
     progcheck(content)
     print(log_inform(textgridname, tname, fileid))
-    output('progression_log.txt', str(log_inform(textgridname, tname, fileid)))
+    fileoutput('progression_log.txt', str(log_inform(textgridname, tname, fileid)))
     # print '\nPlease check "progression_log.txt"'
     return
 
