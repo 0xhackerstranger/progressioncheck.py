@@ -9,11 +9,10 @@ from __future__ import print_function
 
 import os
 import re
-import sys
 from datetime import datetime
 
 try:
-    raw_input = input
+    input = raw_input
 except BaseException:
     pass
 
@@ -76,15 +75,13 @@ def log_inform(textgridname, tname, fileid):
 # ------------------------------------------
 # Main caller
 def main():
-    if len(sys.argv) < 2:
-        print('Usage: python progressioncheck.py <TextGridFile>')
-        exit()
-    textgridname = sys.argv[1]
-    # textgridname = '/home/zhihao/Desktop/for_manual_transcription/mml-3-nov-2017-b-session1-2-clean.TextGrid'
+    # if len(sys.argv) < 2:
+    #     print('Usage: python progressioncheck.py <TextGridFile>')
+    #     exit()
+    # textgridname = sys.argv[1]
+    textgridname = '/home/zhihao/Desktop/for_manual_transcription/asr.TextGrid'
     fileid = os.path.basename(os.path.splitext(textgridname)[0])
-    tname = raw_input('Please enter your name: ')
-    # tname = 'test'
-    # textgri23 dname = 'test.TextGrid' #For debugging
+    tname = input('Please enter your name: ')
     content = fileinput(textgridname)
     progcheck(content)
     print(log_inform(textgridname, tname, fileid))
